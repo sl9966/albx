@@ -3,63 +3,35 @@ const router = express.Router();
 const pagesController = require('./controllers/pagesController');
 
 //获取前台页面
-router.get('/',(req,res)=>{
-        pagesController.getIndexPage(req,res);
-      })
+router.get('/',pagesController.getIndexPage)
 
-      .get('/detail',(req,res)=>{
-        pagesController.getDetailPage(req,res);
-      })
+      .get('/detail',pagesController.getDetailPage)
 
-      .get('/list',(req,res)=>{
-        pagesController.getListPage(req,res);
-      })
+      .get('/list', pagesController.getListPage)
 
 
       //获取后台页面
-      .get('/admin/categories',(req,res)=>{
-        pagesController.getAdminCategoriesPage(req,res);
-      })
+      .get('/admin/categories',pagesController.getAdminCategoriesPage)
     
-      .get('/admin/comments',(req,res)=>{
-        pagesController.getAdminCommentsPage(req,res);
-      })
+      .get('/admin/comments',pagesController.getAdminCommentsPage)
     
-      .get('/admin/index',(req,res)=>{
-        pagesController.getAdminIndexPage(req,res);
-      })
+      .get('/admin',pagesController.getAdminIndexPage)
     
-      .get('/admin/nav-menus',(req,res)=>{
-        pagesController.getAdminNavMenusPage(req,res);
-      })
+      .get('/admin/nav-menus',pagesController.getAdminNavMenusPage)
     
-      .get('/admin/password-reset',(req,res)=>{
-        pagesController.getAdminPasswordResetPage(req,res);
-      })
+      .get('/admin/password-reset',pagesController.getAdminPasswordResetPage)
     
-      .get('/admin/post-add',(req,res)=>{
-        pagesController.getAdminPostAddPage(req,res);
-      })
+      .get('/admin/post-add',pagesController.getAdminPostAddPage)
     
-      .get('/admin/posts',(req,res)=>{
-        pagesController.getAdminPostsPage(req,res);
-      })
+      .get('/admin/posts',pagesController.getAdminPostsPage)
     
-      .get('/admin/profile',(req,res)=>{
-        pagesController.getAdminProfilePage(req,res);
-      })
+      .get('/admin/profile',pagesController.getAdminProfilePage)
     
-      .get('/admin/settings',(req,res)=>{
-        pagesController.getAdminSettingsPage(req,res);
-      })
+      .get('/admin/settings',pagesController.getAdminSettingsPage)
     
-      .get('/admin/slides',(req,res)=>{
-        pagesController.getAdminSlidesPage(req,res);
-      })
+      .get('/admin/slides',pagesController.getAdminSlidesPage)
     
-      .get('/admin/users',(req,res)=>{
-        pagesController.getAdminUsersPage(req,res);
-      })
+      .get('/admin/users',pagesController.getAdminUsersPage)
 
 
 
