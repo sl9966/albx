@@ -21,6 +21,9 @@ $(function(){
               tips.children('span').text(res.msg);
               tips.fadeIn(1000).fadeOut();
             }
+            if(res.code === 200){
+              location.href = '/admin';
+            }
           }
         })
       }

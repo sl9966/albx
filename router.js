@@ -38,6 +38,9 @@ router.get('/',pagesController.getIndexPage)
 
       //登录业务
       .post('/login',usersController.login)
+      //登出业务
+      .get('/logout',usersController.logout)
+
 
 //暴露路由
 module.exports = router;
