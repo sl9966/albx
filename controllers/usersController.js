@@ -14,6 +14,9 @@ module.exports = {
       }else{
         if(data){
           if(data.password === obj.password){
+            res.writeHead(200,{
+              'Set-Cookie' : 'isLogin=true'
+            });
             res.send({
               code : 200,
               msg : '登录成功'

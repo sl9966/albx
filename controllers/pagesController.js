@@ -1,5 +1,5 @@
 //这是处理页面的控制器
-
+const querystring = require('querystring');
 
 module.exports = {
   //前台页面
@@ -27,7 +27,12 @@ module.exports = {
 
 
   getAdminIndexPage(req,res){
-    res.render('admin/index',{});
+    let obj = querystring.parse(req.headers.cookie);
+    if(obj.isLogin && obj.isLogin == 'true'){
+      res.render('admin/index',{});
+    }else{
+      res.redirect('/login');
+    }
   },
 
 
