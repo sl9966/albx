@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('./router');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 //监听端口
 app.listen(3382,()=>{
@@ -18,5 +19,15 @@ app.set('view engine','ejs');
 app.set('views','views');
 
 app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.json());
+
+app.use(session({ 
+    secret: '加密方法', 
+    //重新保存：强制会话保存即使是未修改的。默认为true但是得写上
+    resave: false, 
+    //强制“未初始化”的会话保存到存储。 
+    saveUninitialized: false,
+  }))
+
 
 app.use(router);

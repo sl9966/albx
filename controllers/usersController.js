@@ -7,28 +7,27 @@ module.exports = {
     usersModel.login(obj.email,(err,data)=>{
       if(err){
         console.log(err);
-        res.send({
+        res.json({
           code : 400,
           msg : '服务器异常，请重启'
         })
       }else{
         if(data){
           if(data.password === obj.password){
-            res.writeHead(200,{
-              'Set-Cookie' : 'isLogin=true'
-            });
-            res.send({
+            req.session.isLogin = 'true';
+            console.log(req.session);
+            res.json({
               code : 200,
               msg : '登录成功'
             })
           }else{
-            res.send({
+            res.json({
               code : 400,
               msg : '密码错误'
             })
           }
         }else{
-          res.send({
+          res.json({
             code : 400,
             msg : '邮箱错误'
           })
