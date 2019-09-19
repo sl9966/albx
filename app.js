@@ -27,7 +27,16 @@ app.use(session({
     resave: false, 
     //强制“未初始化”的会话保存到存储。 
     saveUninitialized: false,
-  }))
+  }));
+
+//使用中间件判断登录状态
+app.use(function(req,res,next){
+  if(req.session.isLogin && req.session.isLogin == 'true' || req.url == '/login' || req.url.indexOf('/admin') == -1){
+    next();
+  }else{
+    res.redirect('/login');
+  }
+})
 
 
 app.use(router);

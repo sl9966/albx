@@ -27,11 +27,7 @@ module.exports = {
 
 
   getAdminIndexPage(req,res){
-    if(req.session.isLogin && req.session.isLogin == 'true'){
-      res.render('admin/index',{});
-    }else{
-      res.redirect('/login');
-    }
+    res.render('admin/index',{});
   },
 
 
