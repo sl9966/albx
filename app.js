@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const router = require('./router');
+const bodyParser = require('body-parser');
 
 //监听端口
 app.listen(3382,()=>{
@@ -15,5 +16,7 @@ app.use('/uploads',express.static('uploads'));
 app.set('view engine','ejs');
 //设置访问目录
 app.set('views','views');
+
+app.use(bodyParser.urlencoded({ extended : false }));
 
 app.use(router);

@@ -70,4 +70,8 @@ module.exports = {
     res.render('admin/users',{});
   },
 
+  getAdminLoginPage(req,res){
+    res.render('admin/login',{});
+  }
+
 }
