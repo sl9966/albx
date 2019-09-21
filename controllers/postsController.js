@@ -2,7 +2,7 @@ const postsModel = require('../models/postsModel');
 
 module.exports = {
   getAllPosts(req,res){
-    postsModel.getAllPosts((err,result) =>{
+    postsModel.getAllPosts((err,data) =>{
       if(err){
         res.json({
           code : 400,
@@ -12,7 +12,7 @@ module.exports = {
         res.json({
           code : 200,
           msg : '成功',
-          data : result
+          data
         })
       }
     });
