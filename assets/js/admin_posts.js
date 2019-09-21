@@ -5,7 +5,6 @@ $(function(){
     success : function(res){
       let html = template('tp',res);
       $('tbody').html(html);
-      console.log(res.data);
     }
   })
 })
