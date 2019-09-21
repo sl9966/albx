@@ -2,7 +2,8 @@ const postsModel = require('../models/postsModel');
 
 module.exports = {
   getAllPosts(req,res){
-    postsModel.getAllPosts((err,data) =>{
+    let query = req.query;
+    postsModel.getAllPosts(query,(err,data) =>{
       if(err){
         res.json({
           code : 400,
