@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pagesController = require('./controllers/pagesController');
 const usersController = require('./controllers/usersController');
+const postsController = require('./controllers/postsController');
 
 //获取前台页面
 router.get('/',pagesController.getIndexPage)
@@ -41,6 +42,9 @@ router.get('/',pagesController.getIndexPage)
       //登出业务
       .get('/logout',usersController.logout)
 
+
+      //获取posts数据
+      .get('/getPosts',postsController.getAllPosts)
 
 //暴露路由
 module.exports = router;
