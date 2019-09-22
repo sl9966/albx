@@ -3,6 +3,7 @@ const router = express.Router();
 const pagesController = require('./controllers/pagesController');
 const usersController = require('./controllers/usersController');
 const postsController = require('./controllers/postsController');
+const catesController = require('./controllers/catesController');
 
 //获取前台页面
 router.get('/',pagesController.getIndexPage)
@@ -45,6 +46,9 @@ router.get('/',pagesController.getIndexPage)
 
       //获取posts数据
       .get('/getPosts',postsController.getAllPosts)
+
+      //获取分类数据
+      .get('/getCates',catesController.getCates)
 
 //暴露路由
 module.exports = router;

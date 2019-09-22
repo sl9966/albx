@@ -62,5 +62,21 @@ $(function(){
     e.preventDefault();
     pageNum = 1;
     init(searchData);
+  });
+
+  //获取分类数据
+  $.ajax({
+    type : 'get',
+    url : '/getCates',
+    data : {},
+    dataType : 'json',
+    success : function(res){
+      console.log(res.data);
+      let str = '<option value="all">所有分类</option>';
+      res.data.forEach(e => {
+        str += `<option value="${e.id}">${e.name}</option>`
+      });
+      $('.postsCate').html(str);
+    }
   })
 })
