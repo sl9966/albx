@@ -14,13 +14,27 @@ module.exports = {
     sql = `select posts.*,users.nickname,categories.name
             from posts
             join users on posts.user_id = users.id 
-            join categories on posts.category_id = categories.id
-            limit ${(query.pageNum -1)*query.pageSize},${query.pageSize}`;
+            join categories on posts.category_id = categories.id 
+            where 1=1 `;
+          if(query.category_id && query.category_id != 'all'){
+            sql += ` and posts.category_id = '${query.category_id}'`;
+          }
+          if(query.status && query.status != 'all'){
+            sql += ` and posts.status = '${query.status}'`;
+          }
+          
+          sql +=` limit ${(query.pageNum -1)*query.pageSize},${query.pageSize}`;
     conn.query(sql,(err,result)=>{
       if(err){
         callback(err);
       }else{
-        sql = 'select count(*) as cnt from posts'
+        sql = 'select count(*) as cnt from posts where 1=1 '
+        if(query.category_id && query.category_id != 'all'){
+          sql += ` and posts.category_id = '${query.category_id}'`;
+        }
+        if(query.status && query.status != 'all'){
+          sql += ` and posts.status = '${query.status}'`;
+        }
         conn.query(sql,(err,cnt)=>{
           if(err){
             callback(err);
