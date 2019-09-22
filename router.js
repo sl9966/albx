@@ -4,6 +4,7 @@ const pagesController = require('./controllers/pagesController');
 const usersController = require('./controllers/usersController');
 const postsController = require('./controllers/postsController');
 const catesController = require('./controllers/catesController');
+const uploadController = require('./controllers/uploadController');
 
 //获取前台页面
 router.get('/',pagesController.getIndexPage)
@@ -49,6 +50,10 @@ router.get('/',pagesController.getIndexPage)
 
       //获取分类数据
       .get('/getCates',catesController.getCates)
+
+
+      //上传文件
+      .post('/uploadFiles',uploadController.uploadFiles)
 
 //暴露路由
 module.exports = router;
