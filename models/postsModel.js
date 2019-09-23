@@ -23,7 +23,7 @@ module.exports = {
             sql += ` and posts.status = '${query.status}'`;
           }
           
-          sql +=` limit ${(query.pageNum -1)*query.pageSize},${query.pageSize}`;
+          sql +=` order by posts.id desc limit ${(query.pageNum -1)*query.pageSize},${query.pageSize} `;
     conn.query(sql,(err,result)=>{
       if(err){
         callback(err);
@@ -45,4 +45,15 @@ module.exports = {
       }
     })
   },
+  addPost(query,callback){
+    sql = 'insert into posts set ?';
+    conn.query(sql,query,(err,result)=>{
+      if(err){
+        console.log(err);
+        callback(err);
+      }else{
+        callback(null)
+      }
+    })
+  }
 }

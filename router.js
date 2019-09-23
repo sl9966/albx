@@ -55,5 +55,8 @@ router.get('/',pagesController.getIndexPage)
       //上传文件
       .post('/uploadFiles',uploadController.uploadFiles)
 
+      //添加文章
+      .post('/addPost',postsController.addPost)
+
 //暴露路由
 module.exports = router;
